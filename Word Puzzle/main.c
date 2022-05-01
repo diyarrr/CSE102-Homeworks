@@ -346,7 +346,6 @@ void Creating_The_Word_Grid(char arr[][MAX_COL], const char words[][LEN_OF_WORDS
 
 /*It will fill the empty spaces with letters*/
 void Fill_Empty_Spaces(char arr[][MAX_COL]){
-	char alphabet[26] = "abcdefghijklmnopqrstuvwxyz";
 	char ch;
 	for(int i = 0; i < MAX_ROW; i++)
 	{
