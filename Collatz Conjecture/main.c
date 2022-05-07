@@ -44,5 +44,7 @@ int main(){
 			printf(", ");
 	}
 	printf("}\n");
+	
+	return 0;
 }/*The end of the main*/
 
