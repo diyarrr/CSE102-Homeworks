@@ -92,7 +92,6 @@ int has_loop(int *arr, int n, int looplen, int *ls, int *le){
 }/*The end of the has_loop*/
 
 void hist_of_firstdigits(void (*f)(int, int, int, int*), int xs, int seqlen, int *h, int digit){
-	static int currentlen = 0; // I am using static so that value of currentlen can change for every function calling
 	int *seq = (int *)malloc(seqlen * sizeof(int));
 	seq[0] = xs;
 	generate_sequence(xs, 1, seqlen, seq);
@@ -103,14 +102,13 @@ void hist_of_firstdigits(void (*f)(int, int, int, int*), int xs, int seqlen, int
 			seq[i] /= 10;
 	}
 	/* Determining the every histogram for every digit*/
-	if(currentlen < 9)
+	if(digit - 1 < 9)
 	{
 		for(int i = 0; i < seqlen; i++)
 		{
 			if(seq[i] == digit)
 				++h[digit - 1];
 		}
-		currentlen++;
 		hist_of_firstdigits(generate_sequence, xs, seqlen, h, digit+1); // Calling function again with incremented currentlen and digit value
 	}
 }/*The end of the hist_of_firstdigits*/
